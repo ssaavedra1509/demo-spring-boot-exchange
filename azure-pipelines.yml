@@ -28,7 +28,7 @@ steps:
     goals: 'clean install'
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
-  displayName: mvn clean install  
+  displayName: mvn install  
 
 - task: SonarQubePublish@4
   inputs:
