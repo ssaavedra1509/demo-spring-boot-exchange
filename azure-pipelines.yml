@@ -10,6 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'TestConnectionSonarQube'
+    scannerMode: 'Other'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -20,14 +26,19 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean install'
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
   displayName: mvn clean install  
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: CopyFiles@2
   inputs:
     Contents: '**/*.jar'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: Copy .jar files to artifact staging directory  
-
 
 - task: PublishBuildArtifacts@1
   inputs:
