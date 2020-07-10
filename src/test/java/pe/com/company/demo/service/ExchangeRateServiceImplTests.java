@@ -9,7 +9,7 @@ import pe.com.company.demo.controller.request.ExchangeRateRequest;
 import pe.com.company.demo.controller.response.ExchangeRateResponse;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ExchangeRateServiceImplTest {
+public class ExchangeRateServiceImplTests {
 
     public static final Double AMOUNT_EXPECTED = 3655.0;
     private ExchangeRateRequest exchangeRateRequest;
