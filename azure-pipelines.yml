@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- azure-pipelines
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -15,8 +15,6 @@ steps:
   inputs:
     SonarQube: 'TestConnectionSonarQube'
     scannerMode: 'Other'
-    extraProperties: |
-      sonar.branch.name=azure-pipelines
 
 - task: Maven@3
   inputs:
