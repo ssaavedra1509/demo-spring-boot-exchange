@@ -3,7 +3,7 @@ WORKDIR /app
 ADD pom.xml .
 RUN mvn verify clean --fail-never
 COPY . .
-RUN mvn clean install -DskipTests
+RUN mvn clean install ## -DskipTests
 
 FROM openjdk:8-jdk-alpine
 
