@@ -10,6 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'TestConnectionSonarQubeJose'
+    scannerMode: 'Other'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -21,6 +27,10 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean install'
   displayName: Running unit tests and generating artifact   
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: CopyFiles@2
   inputs:
