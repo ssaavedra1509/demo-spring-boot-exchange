@@ -26,6 +26,8 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean install'
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
   displayName: Running unit tests and generating artifact   
 
 - task: SonarQubePublish@4
