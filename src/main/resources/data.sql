@@ -11,4 +11,5 @@ INSERT INTO currency_exchange (source_currency, target_currency, change) VALUES
 ('PEN', 'USD', 3.35),
 ('USD', 'PEN', 3.33),
 ('PEN', 'EUR', 4.83),
-('EUR', 'PEN', 4.3);
+('EUR', 'PEN', 4.3),
+('USD', 'EUR', 0.85);
